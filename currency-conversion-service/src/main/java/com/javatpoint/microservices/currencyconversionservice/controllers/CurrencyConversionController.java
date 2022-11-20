@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class CurrencyConversionController {
 
-  private RestTemplate restTemplate = new RestTemplate();
+  private final RestTemplate restTemplate = new RestTemplate();
 
   @Autowired
   private CurrencyExchangeServiceProxy proxy;
@@ -57,10 +57,6 @@ public class CurrencyConversionController {
   public CurrencyConversionBean convertCurrencyFeign(@PathVariable String from,
       @PathVariable String to,
       @PathVariable BigDecimal quantity) {
-    //setting variables to currency exchange service
-    Map<String, String> uriVariables = new HashMap<>();
-    uriVariables.put("from", from);
-    uriVariables.put("to", to);
 
     //calling the currency-exchange-service
     CurrencyConversionBean response = proxy.retrieveExchangeValue(from, to);
