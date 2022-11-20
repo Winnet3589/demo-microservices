@@ -1,3 +1,4 @@
-/Users/Project/ws/demo_microservices/src/main/java/com/javatpoint/microservices/limitsservice/models/LimitConfiguration.java
-/Users/Project/ws/demo_microservices/src/main/java/com/javatpoint/microservices/limitsservice/LimitsServiceApplication.java
-/Users/Project/ws/demo_microservices/src/main/java/com/javatpoint/microservices/limitsservice/controllers/LimitsConfigurationController.java
+/Users/Project/ws/demo-microservices/limits-service/src/main/java/com/javatpoint/microservices/limitsservice/models/LimitConfiguration.java
+/Users/Project/ws/demo-microservices/limits-service/src/main/java/com/javatpoint/microservices/limitsservice/controllers/LimitsConfigurationController.java
+/Users/Project/ws/demo-microservices/limits-service/src/main/java/com/javatpoint/microservices/limitsservice/Configuration.java
+/Users/Project/ws/demo-microservices/limits-service/src/main/java/com/javatpoint/microservices/limitsservice/LimitsServiceApplication.java

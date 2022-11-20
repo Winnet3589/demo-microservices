@@ -1,4 +1,5 @@
 com/javatpoint/microservices/limitsservice/models/LimitConfiguration.class
+com/javatpoint/microservices/limitsservice/Configuration.class
 com/javatpoint/microservices/limitsservice/LimitsServiceApplication.class
 com/javatpoint/microservices/limitsservice/controllers/LimitsConfigurationController.class
 com/javatpoint/microservices/limitsservice/models/LimitConfiguration$LimitConfigurationBuilder.class
