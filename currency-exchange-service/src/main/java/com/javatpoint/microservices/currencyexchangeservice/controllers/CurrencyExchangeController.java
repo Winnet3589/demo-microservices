@@ -19,19 +19,25 @@ public class CurrencyExchangeController {
 
 
   @GetMapping("/currency-exchange/from/{from}/to/{to}")//where {from} and {to} are path variable
-  public ExchangeValue retrieveExchangeValue(@PathVariable String from,
-      @PathVariable String to)  //from map to USD and to map to INR
+  public ExchangeValue retrieveExchangeValue(@PathVariable String from, @PathVariable String to)  //from map to USD and to map to INR
   {
+
     ExchangeValue exchangeValue;
+    int port = Integer.parseInt(
+        Objects.requireNonNull(environment.getProperty("local.server.port")));
     Optional<ExchangeValue> exchangeValueOptional = DumyData.exchangeValueList.stream()
         .filter(ex -> ex.getFrom().equals(from) && ex.getTo().equals(to)).findFirst();
     if (exchangeValueOptional.isPresent()) {
       exchangeValue = exchangeValueOptional.get();
-      exchangeValue.setPort(Integer.parseInt(
-          Objects.requireNonNull(environment.getProperty("local.server.port"))));
+      exchangeValue.setPort(port);
     } else {
-      exchangeValue = new ExchangeValue(1000L, from, to, BigDecimal.valueOf(65), Integer.parseInt(
-          Objects.requireNonNull(environment.getProperty("local.server.port"))));
+      exchangeValue = ExchangeValue.builder()
+          .id(0L)
+          .from(from)
+          .to(to)
+          .conversionMultiple(BigDecimal.valueOf(0))
+          .port(port)
+          .build();
     }
 
     return exchangeValue;

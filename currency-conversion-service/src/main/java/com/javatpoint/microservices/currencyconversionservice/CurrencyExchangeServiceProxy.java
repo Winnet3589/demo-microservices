@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 //@FeignClient(name="currency-exchange-service", url="http://localhost:8000")
 
-
-//Enabling feign
+//Enabling feign, //enabling ribbon
 @FeignClient(name="currency-exchange-service")
-//enabling ribbon
 @RibbonClient(name="currency-exchange-service")
 
 // Zuul
@@ -19,5 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface CurrencyExchangeServiceProxy
 {
   @GetMapping("/currency-exchange/from/{from}/to/{to}")		//where {from} and {to} are path variable
-  public CurrencyConversionBean retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to); //from map to USD and to map to INR
+  CurrencyConversionBean retrieveExchangeValue(@PathVariable("from") String from,
+      @PathVariable("to") String to); //from map to USD and to map to INR
 }
