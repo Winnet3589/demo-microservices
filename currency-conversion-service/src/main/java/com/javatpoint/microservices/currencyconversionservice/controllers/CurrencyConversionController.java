@@ -6,6 +6,8 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 public class CurrencyConversionController {
 
   private final RestTemplate restTemplate = new RestTemplate();
+  private final Logger logger= LoggerFactory.getLogger(this.getClass());
 
   @Autowired
   private CurrencyExchangeServiceProxy proxy;
@@ -41,7 +44,7 @@ public class CurrencyConversionController {
       return CurrencyConversionBean.builder().build();
     }
 
-    return CurrencyConversionBean.builder()
+    response = CurrencyConversionBean.builder()
         .id(response.getId())
         .from(from)
         .to(to)
@@ -49,6 +52,9 @@ public class CurrencyConversionController {
         .quantity(quantity)
         .totalCalculatedAmount(quantity.multiply(response.getConversionMultiple()))
         .port(response.getPort()).build();
+
+    logger.info("response :{}", response);
+    return response;
   }
 
   @GetMapping("/currency-converter-feign/from/{from}/to/{to}/quantity/{quantity}")
@@ -65,7 +71,7 @@ public class CurrencyConversionController {
       return CurrencyConversionBean.builder().build();
     }
 
-    return CurrencyConversionBean.builder()
+    response = CurrencyConversionBean.builder()
         .id(response.getId())
         .from(from)
         .to(to)
@@ -73,5 +79,8 @@ public class CurrencyConversionController {
         .quantity(quantity)
         .totalCalculatedAmount(quantity.multiply(response.getConversionMultiple()))
         .port(response.getPort()).build();
+
+    logger.info("response :{}", response);
+    return response;
   }
 }

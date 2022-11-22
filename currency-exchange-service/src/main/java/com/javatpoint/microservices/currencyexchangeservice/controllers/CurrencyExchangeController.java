@@ -5,6 +5,8 @@ import com.javatpoint.microservices.currencyexchangeservice.models.ExchangeValue
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,7 @@ public class CurrencyExchangeController {
 
   @Autowired
   private Environment environment;
-
+  private final Logger logger= LoggerFactory.getLogger(this.getClass());
 
   @GetMapping("/currency-exchange/from/{from}/to/{to}")//where {from} and {to} are path variable
   public ExchangeValue retrieveExchangeValue(@PathVariable String from, @PathVariable String to)  //from map to USD and to map to INR
@@ -39,6 +41,7 @@ public class CurrencyExchangeController {
           .port(port)
           .build();
     }
+    logger.info("exchangeValue :{}", exchangeValue);
 
     return exchangeValue;
   }
