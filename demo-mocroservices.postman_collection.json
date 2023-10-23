@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "c6a2a661-5414-47ae-98f2-7dba444e6c82",
+		"name": "demo-mocroservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4916042",
+		"_collection_link": "https://martian-comet-393265.postman.co/workspace/https%3A%2F%2Fext-instant-bank-transf~693d8251-c190-49e9-bcc9-60f905718d20/collection/4916042-c6a2a661-5414-47ae-98f2-7dba444e6c82?action=share&source=collection_link&creator=4916042"
+	},
+	"item": [
+		{
+			"name": "limits-services",
+			"item": [
+				{
+					"name": "http://localhost:8080/limits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/limits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"limits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8081/limits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/limits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"limits"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "spring-cloud-config-server",
+			"item": [
+				{
+					"name": "localhost:8888/limits-service/dev",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/limits-service/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"limits-service",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8888/limits-service/qa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/limits-service/qa",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"limits-service",
+								"qa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "currency-exchange-service",
+			"item": [
+				{
+					"name": "http://localhost:8000/currency-exchange/from/{from}/to/{to}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/currency-exchange/from/USD/to/INR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"currency-exchange",
+								"from",
+								"USD",
+								"to",
+								"INR"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8000/testAnnotation?",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"ccc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/testAnnotation?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"testAnnotation"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8001/currency-exchange/from/{from}/to/{to}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/currency-exchange/from/EUR/to/INR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"currency-exchange",
+								"from",
+								"EUR",
+								"to",
+								"INR"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8002/currency-exchange/from/{from}/to/{to}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/currency-exchange/from/AUD/to/INR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"currency-exchange",
+								"from",
+								"AUD",
+								"to",
+								"INR"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "currency-conversion-service",
+			"item": [
+				{
+					"name": "http://localhost:8100/currency-converter/from/{from}/to/{to}/ quantity/{quantity}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8100/currency-converter/from/USD/to/INR/quantity/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8100",
+							"path": [
+								"currency-converter",
+								"from",
+								"USD",
+								"to",
+								"INR",
+								"quantity",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8100/currency-converter-feign/from/{from}/to/{to}/ quantity/{quantity}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8100/currency-converter-feign/from/EUR/to/INR/quantity/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8100",
+							"path": [
+								"currency-converter-feign",
+								"from",
+								"EUR",
+								"to",
+								"INR",
+								"quantity",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "netflix-eureka-naming-server",
+			"item": [
+				{
+					"name": "http://localhost:8761",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8761",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8761"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "netflix-zuul-api-gateway-server",
+			"item": [
+				{
+					"name": "http://localhost:8765/{application-name}/{uri}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/currency-exchange-service/currency-exchange/from/EUR/to/INR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"currency-exchange-service",
+								"currency-exchange",
+								"from",
+								"EUR",
+								"to",
+								"INR"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8765/currency-conversion-service/currency-converter-feign/from/USD/to/INR/quantity/1000",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/currency-conversion-service/currency-converter-feign/from/EUR/to/INR/quantity/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"currency-conversion-service",
+								"currency-converter-feign",
+								"from",
+								"EUR",
+								"to",
+								"INR",
+								"quantity",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
